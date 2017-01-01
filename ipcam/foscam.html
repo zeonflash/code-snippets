@@ -1,0 +1,51 @@
+<!--
+
+<img src="http://your_camera_url:your_camera_port/videostream.cgi?user=your_camera_user&pwd=your_camera_pass" width="640" height="480" />
+<iframe name="my_control" border =0 width=1 height=1></iframe>
+<a href="your_camera_url:your_camera_port/decoder_control.cgi?command=xx&onestep=5&user=your_camera_user&pwd=your_camera_pass" Target="my_control">command description</a>
+
+xx can be :
+
+0 up
+1 stop up
+2 down
+3 stop down
+4 left
+5 stop left
+6 right
+7 stop right
+26 vertical patrol
+27 stop vertical patrol
+28 horizontal patrol
+29 stop horizontal patrol
+-->
+
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  
+  <!--timeout after 5 minutes, then show a info page = data traffic is expensive-->
+  <META HTTP-EQUIV="Refresh" CONTENT="300;URL=info_timeout.html">
+  <!--timeout end-->
+  </head>
+<body onload="resizeTo(670,800);">
+    <!--show the video stream. you must change the url, the port, user and pwd -->
+    <img src ="http://your_camera_url:your_camera_port/videostream.cgi?user=gast&pwd=gast"" width"640" height="480"/>  <br>
+    <!--show the video end -->
+    
+      <!--textlinks to control movement, you must change the url, the port, user and pwd -->
+      <!--the   target=control   part moves the answer from the camera to the hidden iframe -->
+      <!--if you do not use an iframe your page will clear and you can see only the answer from the camera-->
+     <a href="http://your_camera_url:your_camera_port/decoder_control.cgi?command=0&onestep=5&user=operator&pwd=operator" Target="control">move up</a>  <br>
+     <a href="http://your_camera_url:your_camera_port/decoder_control.cgi?command=6&onestep=5&user=operator&pwd=operator" Target="control">move left</a>  <br>
+     <a href="http://your_camera_url:your_camera_port/decoder_control.cgi?command=2&onestep=5&user=operator&pwd=operator" Target="control">move down</a>  <br>
+     <a href="http://your_camera_url:your_camera_port/decoder_control.cgi?command=4&onestep=5&user=operator&pwd=operator" Target="control">move right</a>  <br>
+     <!--textlinks end -->
+     
+     
+    <!--the hidden iframe wich will catch the answer from the camera -->
+     <iframe name="control" border=0 width=1 height=1">  </iframe>
+    <!--iframe end-->
+  </body>
+</html>
